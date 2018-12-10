@@ -1,4 +1,5 @@
 const { GraphQLServerLambda } = require('graphql-yoga')
+process.env.NODE_CONFIG_DIR = process.env["LAMBDA_TASK_ROOT"];
 const config = require('config')
 
 console.log(config)
@@ -13,7 +14,7 @@ const typeDefs = `
 const resolvers = {
   Query: {
     hello: (_, { name }) => `Hello ${name || 'world'}`,
-    config: (_) => JSON.stringify(config)
+    config: (_) => JSON.stringify({...config, dirname: __dirname, taskRoot: process.env["LAMBDA_TASK_ROOT"]})
   },
 }
 
