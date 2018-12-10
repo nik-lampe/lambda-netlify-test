@@ -9,8 +9,8 @@
     "build": "netlify-lambda build server"
   },
   "dependencies": {
-    "graphql-yoga": "^1.14.7",
-    "node-config": "^0.0.2"
+    "config": "^3.0.0",
+    "graphql-yoga": "^1.14.7"
   },
   "devDependencies": {
     "netlify-lambda": "^0.4.0"

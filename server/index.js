@@ -1,6 +1,7 @@
 const { GraphQLServerLambda } = require('graphql-yoga')
-const config = require('node-config')
+const config = require('config')
 
+console.log(config)
 
 const typeDefs = `
   type Query {
