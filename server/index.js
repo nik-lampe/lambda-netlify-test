@@ -1,14 +1,18 @@
 const { GraphQLServerLambda } = require('graphql-yoga')
+const config = require('node-config')
+
 
 const typeDefs = `
   type Query {
-    hello(name: String): String
+    hello(name: String): String,
+    config: String
   }
 `
 
 const resolvers = {
   Query: {
     hello: (_, { name }) => `Hello ${name || 'world'}`,
+    config: (_) => JSON.stringify(config)
   },
 }
 
